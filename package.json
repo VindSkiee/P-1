@@ -20,5 +20,8 @@
     "url": "https://github.com/VindSkiee/P-3/issues"
   },
   "homepage": "https://github.com/VindSkiee/P-3#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "js-levenshtein": "^1.1.6"
+  }
 }
