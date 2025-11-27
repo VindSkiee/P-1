@@ -14,6 +14,9 @@ export class SlotWaktu {
   // final state: mengembalikan durasi waktu (dalam menit atau jam) antara mulai dan selesai
   durasi() {
     const selisih = this.selesai - this.mulai;
+    if (selisih < 0) {
+      selisih = selisih * -1;
+    }
     return selisih / (1000 * 60); 
   }
 }

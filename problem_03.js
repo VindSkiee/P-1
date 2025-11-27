@@ -97,8 +97,10 @@ export class JaringanSosial {
     visited[idPengguna1] = true;
 
     let idx = 0;
-
-    while (idx < queue.length) {
+    if (idPengguna1 === idPengguna2) {
+      return 0;
+    } else {
+      while (idx < queue.length) {
       const current = queue[idx];
       idx++;
 
@@ -116,6 +118,7 @@ export class JaringanSosial {
           queue.push({ id: n, level: current.level + 1 });
         }
       }
+    }
     }
 
     return -1;

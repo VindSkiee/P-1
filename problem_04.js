@@ -101,16 +101,15 @@ export class AnalisisKinerjaMahasiswa {
     }
     if (scores.length === 0) return { rataRata: 0, median: 0, modus: 0, standarDeviasi: 0 };
     
-    const rataRata = scores.reduce((a, b) => a + b, 0) / scores.length;
+    const mean = scores.reduce((a, b) => a + b, 0) / scores.length;
 
     const freq = {};
     scores.forEach(s => freq[s] = (freq[s] || 0) + 1);
     const modus = Object.keys(freq).reduce((a, b) => freq[a] > freq[b] ? a : b);
     
-    const variance = scores.reduce((sum, s) => sum + (s - rataRata) ** 2, 0) / scores.length;
+    const variance = scores.reduce((sum, s) => sum + (s - mean) ** 2, 0) / scores.length;
     const standarDeviasi = Math.sqrt(variance);
-    
-    return { rataRata, median: parseFloat(modus), modus: parseFloat(modus), standarDeviasi };
+    return { mean, median: parseFloat(modus), modus: parseFloat(modus), standarDeviasi };
   }
 
   // initial state: daftarMahasiswa sudah memiliki nilai dan GPA

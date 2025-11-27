@@ -77,7 +77,7 @@ export class PengelolaInventaris {
   perbaruiStokBanyak(pembaruan) {
     for (const update of pembaruan) {
       const produk = this.produk.find(p => p.id === update.idProduk);
-      if (produk) {
+      if (produk && update.stokBaru >= 0) {
         produk.stokSekarang = update.stokBaru;
       }
     }
